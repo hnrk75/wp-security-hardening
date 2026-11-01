@@ -3,4 +3,7 @@ Thumbs.db
 .vscode/
 .idea/
 .claude/
+CLAUDE.md
+CLAUDE.local.md
+.mcp.json
 vendor/

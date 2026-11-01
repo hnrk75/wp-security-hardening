@@ -11,6 +11,16 @@ plugin uses [Semantic Versioning](https://semver.org/):
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-11-01
+
+Fixes from the first client site built on the starter template (svenssonsmetropol).
+
+### Security
+- A display name that equals the login name (WordPress's default) is replaced by the user's name, nickname or the site name on registration and profile updates. The display name is shown in bylines, JSON-LD and RSS, so it leaked the login name. Existing users are fixed once, the first time an administrator opens wp-admin after the update.
+- Password spraying: when an IP has failed against 10 different accounts within 15 minutes, it may not try any new accounts for 15 minutes. Accounts known from that IP — those that tried during the window or logged in successfully from it within 30 days — keep working with the per-account rule, so regular users can still log in behind a shared CDN/proxy IP during an attack. Filter: `security_hardening_max_accounts_per_ip` (0 turns it off).
+- Security headers (`nosniff`, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options`) are also sent on `wp-login.php` and in wp-admin.
+- Admin notifications are based on capabilities instead of the role names administrator/editor, so custom roles with high capabilities, extra roles, `add_cap()` and super admin are covered too. Filter: `security_hardening_privileged_caps`.
+
 ## [1.3.2] - 2026-11-01
 
 No change to the plugin itself — repo tooling only.

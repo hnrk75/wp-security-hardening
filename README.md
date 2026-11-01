@@ -12,13 +12,13 @@ tables, no server configuration — it works the same on any host.
 | Registration | Always disabled; the default role is always subscriber, regardless of the database settings. |
 | XML-RPC | Disabled completely (brute force via `system.multicall`, pingbacks). |
 | Application passwords | Disabled — they bypass the regular login and two-factor authentication. |
-| Usernames | Hidden from logged-out visitors: REST `/wp/v2/users`, `?author=`, author archives, the users sitemap and oEmbed author data. |
+| Usernames | Hidden from logged-out visitors: REST `/wp/v2/users`, `?author=`, author archives, the users sitemap and oEmbed author data. A display name that equals the login name (WordPress's default) is replaced by the user's name, nickname or the site name, since it is shown in bylines, schema and RSS. |
 | Login errors | The same message for wrong username and wrong password. |
 | Lost password | The same confirmation whether the account exists or not. |
-| Login throttling | 5 failed logins for the same account from the same IP within 15 minutes lock that combination for 15 minutes. Counting per IP **and** account means only the attacked account is locked, even behind a proxy or CDN. |
+| Login throttling | 5 failed logins for the same account from the same IP within 15 minutes lock that combination for 15 minutes. Counting per IP **and** account means only the attacked account is locked, even behind a proxy or CDN. Against password spraying, an IP that fails against 10 different accounts within 15 minutes may not try any new accounts for 15 minutes; accounts known from that IP (tried during the window, or logged in from it within 30 days) keep working, so regular users can still log in behind a shared CDN/proxy IP (filter `security_hardening_max_accounts_per_ip`, 0 turns it off). |
 | Two-factor authentication | Required for all users when the [Two Factor](https://wordpress.org/plugins/two-factor/) plugin is active: users without it are sent to their profile until it is set up. Nothing happens while the plugin is inactive (e.g. locally). |
-| Security headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, and HSTS in production over HTTPS. The WordPress version is hidden. |
-| Notifications | Email to the admin when a user is created or becomes administrator/editor. |
+| Security headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, and HSTS in production over HTTPS — on the front end, the login page and in wp-admin. The WordPress version is hidden. |
+| Notifications | Email to the admin when a user is created, gains privileged capabilities (by any route: role change, extra role, extra capability, custom role) or becomes super admin. Privileged capabilities can be changed with the `security_hardening_privileged_caps` filter. |
 
 User-facing messages (login errors, lockout, emails) are in Swedish.
 
@@ -33,7 +33,7 @@ Add the repository and require an exact version in the project's `composer.json`
   { "type": "vcs", "url": "https://github.com/hnrk75/wp-security-hardening" }
 ],
 "require": {
-  "hnrk75/wp-security-hardening": "1.3.2"
+  "hnrk75/wp-security-hardening": "1.4.0"
 }
 ```
 

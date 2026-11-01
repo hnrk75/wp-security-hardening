@@ -1,0 +1,20 @@
+{
+  "name": "hnrk75/wp-security-hardening",
+  "description": "Must-use plugin with basic WordPress security hardening. No settings, works on any host.",
+  "type": "wordpress-muplugin",
+  "license": "MIT",
+  "homepage": "https://github.com/hnrk75/wp-security-hardening",
+  "authors": [
+    {
+      "name": "Henrik Pettersson",
+      "homepage": "https://github.com/hnrk75"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/hnrk75/wp-security-hardening/issues"
+  },
+  "require": {
+    "php": ">=8.1",
+    "composer/installers": "^2.3"
+  }
+}

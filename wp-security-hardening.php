@@ -5,7 +5,7 @@
  *
  * Description: Basic security hardening: enforces disabled registration, disables XML-RPC and application passwords, requires two-factor authentication when the Two Factor plugin is active, throttles failed logins per IP and account, hides usernames and the WordPress version, sends security headers and emails the admin when a user is created or becomes administrator/editor.
  *
- * Version:     1.3.1
+ * Version:     1.3.2
  * Author:      Henrik Pettersson <henrik.pettersson@knowit.se>
  * License:     MIT License
  *

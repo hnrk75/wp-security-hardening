@@ -33,7 +33,7 @@ Add the repository and require an exact version in the project's `composer.json`
   { "type": "vcs", "url": "https://github.com/hnrk75/wp-security-hardening" }
 ],
 "require": {
-  "hnrk75/wp-security-hardening": "1.3.1"
+  "hnrk75/wp-security-hardening": "1.3.2"
 }
 ```
 

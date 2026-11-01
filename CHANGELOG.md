@@ -11,8 +11,13 @@ plugin uses [Semantic Versioning](https://semver.org/):
 
 ## [Unreleased]
 
+## [1.3.2] - 2026-11-01
+
+No change to the plugin itself — repo tooling only.
+
 ### Changed
-- Releases are tagged automatically by a GitHub Action from the version in the plugin header (repo tooling only — no change to the plugin itself).
+- Releases are tagged automatically by a GitHub Action from the version in the plugin header.
+- All Claude files are ignored by git.
 
 ## [1.3.1] - 2026-11-01
 

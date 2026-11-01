@@ -11,6 +11,9 @@ plugin uses [Semantic Versioning](https://semver.org/):
 
 ## [Unreleased]
 
+### Changed
+- Releases are tagged automatically by a GitHub Action from the version in the plugin header (repo tooling only — no change to the plugin itself).
+
 ## [1.3.1] - 2026-11-01
 
 First version as a standalone Composer package (previously `web/app/mu-plugins/security.php`

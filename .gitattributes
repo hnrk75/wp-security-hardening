@@ -1,3 +1,4 @@
 # Files left out of the package Composer downloads (GitHub's zip of a tag).
 /.gitattributes export-ignore
+/.github        export-ignore
 /.gitignore     export-ignore

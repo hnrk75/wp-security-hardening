@@ -50,11 +50,13 @@ Recommended together with `wpackagist-plugin/two-factor`.
 
 ## Releasing a new version
 
+Tags are created automatically by a GitHub Action from the version in the plugin header.
+
 1. Work on `dev`. Add a line under **Unreleased** in `CHANGELOG.md`.
 2. Update `Version:` in the header of `wp-security-hardening.php`.
 3. In `CHANGELOG.md`, rename **Unreleased** to `[x.y.z] - YYYY-MM-DD` and add a new empty **Unreleased** above it.
 4. Commit on `dev` and push, then PR `dev` → `main` with **Create a merge commit**.
-5. Tag on `main`: `git checkout main && git pull && git tag vx.y.z && git push origin vx.y.z`.
+5. The **Tag release** action tags `vx.y.z` on `main`. Never create tags by hand — the tag must match the header.
 6. On each site: change the version in `composer.json` and run `composer update hnrk75/wp-security-hardening`.
 
 ---
